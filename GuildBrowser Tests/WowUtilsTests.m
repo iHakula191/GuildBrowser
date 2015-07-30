@@ -30,6 +30,8 @@
 // 1
 -(void)testCharacterClassNameLookup
 {
+    XCTAssertEqual(@"a", @"b");
+    
     // 2
     XCTAssertEqualObjects(@"Warrior",
                          [WoWUtils classFromCharacterType:1],
