@@ -1,0 +1,33 @@
+===============================================================================
+
+
+export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer/
+
+xcodebuild -target GuildBrowser\ Tests -sdk iphonesimulator -configuration Debug TEST_AFTER_BUILD=YES
+
+xcodebuild test -project GuildBrowser.xcodeproj -scheme GuildBrowser\ Tests clean build | /usr/local/bin/ocunit2junit.rb
+
+
+================================================================================
+
+
+// Use simulator
+xcodebuild test -project GuildBrowser.xcodeproj -scheme GuildBrowser\ Tests
+
+Ref: https://developer.apple.com/library/ios/documentation/DeveloperTools/Conceptual/testing_with_xcode/A2-command_line_testing/A2-command_line_testing.html
+
+// Only for build
+export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer/
+ 
+xcodebuild -target GuildBrowser\ Tests \
+-sdk iphonesimulator \
+-configuration Debug \
+TEST_AFTER_BUILD=YES \
+clean build
+
+// Final Version
+export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer/
+
+xcodebuild -target GuildBrowser\ Tests -sdk iphonesimulator -configuration Debug TEST_AFTER_BUILD=YES clean build
+
+xcodebuild test -project GuildBrowser.xcodeproj -scheme GuildBrowser\ Tests
