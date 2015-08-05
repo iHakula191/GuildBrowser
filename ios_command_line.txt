@@ -3,6 +3,18 @@
 
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer/
 
+xcodebuild -workspace -target TWTests -sdk iphonesimulator -configuration Debug TEST_AFTER_BUILD=YES
+
+xcodebuild test -workspace smarty.xcworkspace -scheme TWTests clean build | /usr/local/bin/ocunit2junit.rb
+
+
+================================================================================
+
+===============================================================================
+
+
+export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer/
+
 xcodebuild -target GuildBrowser\ Tests -sdk iphonesimulator -configuration Debug TEST_AFTER_BUILD=YES
 
 xcodebuild test -project GuildBrowser.xcodeproj -scheme GuildBrowser\ Tests clean build | /usr/local/bin/ocunit2junit.rb
