@@ -2,9 +2,8 @@
 
 
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer/
-
-xcodebuild -workspace -target TWTests -sdk iphonesimulator -configuration Debug TEST_AFTER_BUILD=YES
-
+cd ./wafian_smarty-ios
+pod install
 xcodebuild test -workspace smarty.xcworkspace -scheme TWTests clean build | /usr/local/bin/ocunit2junit.rb
 
 
